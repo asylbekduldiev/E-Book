@@ -1,0 +1,303 @@
+/* Content CSS for WebView - Perfect Design */
+
+body {
+    font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.8;
+    color: #2c3e50;
+    margin: 0;
+    padding: 30px;
+    background: #f5f7fa;
+    min-height: 100vh;
+}
+
+/* Section Styling */
+.lecture-section, .practice-section, .tasks-section {
+    background: white;
+    margin: 30px 0;
+    padding: 40px;
+    border-radius: 25px;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+.lecture-section {
+    border-left: 6px solid #3498db;
+}
+
+.practice-section {
+    border-left: 6px solid #e74c3c;
+}
+
+.tasks-section {
+    border-left: 6px solid #f39c12;
+}
+
+/* Content Blocks */
+.content-block {
+    margin: 30px 0;
+    padding: 25px;
+    background: #f8f9fa;
+    border-radius: 15px;
+    border: 1px solid #e9ecef;
+}
+
+.task-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.task-meta {
+    display: flex;
+    gap: 20px;
+}
+
+.difficulty, .time {
+    background: #667eea;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: 600;
+}
+
+.difficulty {
+    background: #e74c3c;
+}
+
+.time {
+    background: #10b981;
+}
+
+/* Info Boxes */
+.info-box, .practice-tips, .task-tips {
+    background: #e3f2fd;
+    border: 2px solid #2196f3;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.info-box h3, .practice-tips h3, .task-tips h3 {
+    color: #1976d2;
+    margin-top: 0;
+    border-left-color: #2196f3;
+}
+
+/* Code Examples */
+.code-example {
+    background: #f5f5f5;
+    border: 2px solid #e0e0e0;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.code-example h3 {
+    color: #424242;
+    margin-top: 0;
+    border-left-color: #757575;
+}
+
+/* Task Requirements */
+.task-requirements {
+    background: #fff3e0;
+    border: 2px solid #ff9800;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.task-requirements h3 {
+    color: #e65100;
+    margin-top: 0;
+    border-left-color: #ff9800;
+}
+
+/* Main Headings */
+h1 {
+    color: #2c3e50;
+    font-size: 3em;
+    font-weight: 800;
+    margin: 0 0 30px 0;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    background: #667eea;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+h2 {
+    color: #34495e;
+    font-size: 2.2em;
+    font-weight: 700;
+    margin: 40px 0 20px 0;
+    padding: 15px 0;
+    border-bottom: 3px solid #3498db;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+h3 {
+    color: #2c3e50;
+    font-size: 1.6em;
+    font-weight: 600;
+    margin: 25px 0 15px 0;
+    padding-left: 15px;
+    border-left: 4px solid #e74c3c;
+}
+
+/* Content Styling */
+p {
+    font-size: 1.15em;
+    margin: 18px 0;
+    text-align: justify;
+    color: #34495e;
+    line-height: 1.9;
+}
+
+ul, ol {
+    margin: 20px 0;
+    padding-left: 30px;
+}
+
+li {
+    margin: 12px 0;
+    color: #34495e;
+    font-size: 1.1em;
+    line-height: 1.7;
+}
+
+/* Code Blocks */
+pre {
+    background: #2d3748;
+    color: #e2e8f0;
+    padding: 25px;
+    border-radius: 15px;
+    overflow-x: auto;
+    font-family: 'Fira Code', 'Monaco', 'Consolas', 'Courier New', monospace;
+    font-size: 0.95em;
+    line-height: 1.6;
+    margin: 25px 0;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+    border: 1px solid #4a5568;
+    position: relative;
+}
+
+pre::before {
+    content: 'Code';
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    background: #667eea;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8em;
+    font-weight: bold;
+}
+
+code {
+    background: #f7fafc;
+    color: #e53e3e;
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-family: 'Fira Code', 'Monaco', 'Consolas', 'Courier New', monospace;
+    font-size: 0.9em;
+    border: 1px solid #e2e8f0;
+    font-weight: 500;
+}
+
+/* Task Cards */
+.task-card {
+    background: #f8f9fa;
+    border: 2px solid #dee2e6;
+    border-radius: 20px;
+    padding: 25px;
+    margin: 20px 0;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.task-card:hover {
+    border-color: #667eea;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.task-card p {
+    margin: 15px 0;
+}
+
+.task-card ul {
+    margin: 15px 0;
+    padding-left: 25px;
+}
+
+.task-card li {
+    margin: 8px 0;
+    font-size: 1.05em;
+}
+
+/* Links */
+a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 2px solid transparent;
+}
+
+a:hover {
+    color: #2980b9;
+    border-bottom-color: #2980b9;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+th, td {
+    padding: 18px;
+    text-align: left;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+th {
+    background: #667eea;
+    color: white;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    letter-spacing: 0.8px;
+}
+
+tr:hover {
+    background: #f8f9fa;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #667eea;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #5a6fd8;
+}

@@ -1,0 +1,144 @@
+[
+  {
+    "title": "JavaFX - Современная разработка UI",
+    "lecture": {
+      "sections": [
+        {
+          "title": "Что такое JavaFX?",
+          "content": "JavaFX - это современная платформа для создания богатых пользовательских интерфейсов в Java. Она пришла на смену устаревшему Swing и предоставляет разработчикам мощные инструменты для создания красивых и функциональных приложений."
+        },
+        {
+          "title": "Ключевые преимущества",
+          "content": "FXML - декларативное описание интерфейса, отделяющее логику от представления. CSS стилизация - современный подход к дизайну с использованием каскадных таблиц стилей. Анимации - встроенные возможности для создания плавных переходов и эффектов. 3D графика - поддержка трехмерной графики и сложных визуальных эффектов. Мультимедиа - встроенная поддержка аудио, видео и веб-контента. Кроссплатформенность - приложения работают одинаково на Windows, macOS и Linux."
+        },
+        {
+          "title": "Архитектура JavaFX",
+          "content": "JavaFX построен на основе сценного графа (Scene Graph) - древовидной структуры, где каждый узел представляет собой элемент интерфейса. Это позволяет эффективно управлять отрисовкой и обработкой событий. Основные компоненты: Stage - главное окно приложения, Scene - контейнер для всех элементов интерфейса, Node - базовый класс для всех элементов UI, Control - интерактивные элементы управления, Layout - контейнеры для размещения элементов."
+        },
+        {
+          "title": "Система событий",
+          "content": "JavaFX использует современную систему событий, основанную на паттерне Observer. Каждый элемент может генерировать события и реагировать на них, что делает интерфейс интерактивным и отзывчивым."
+        },
+        {
+          "title": "Инструменты разработки",
+          "content": "Scene Builder - визуальный редактор FXML, IntelliJ IDEA - отличная поддержка JavaFX, Eclipse - плагины для JavaFX разработки, NetBeans - встроенная поддержка JavaFX."
+        }
+      ]
+    },
+    "practice": {
+      "sections": [
+        {
+          "title": "Создание простого приложения",
+          "content": "Базовый пример JavaFX приложения с главным окном. Создаем кнопку, контейнер VBox, сцену и главное окно. Приложение демонстрирует основные принципы работы с JavaFX.",
+          "code": "import javafx.application.Application;\nimport javafx.scene.Scene;\nimport javafx.scene.control.Button;\nimport javafx.scene.layout.VBox;\nimport javafx.stage.Stage;\n\npublic class SimpleApp extends Application {\n    @Override\n    public void start(Stage primaryStage) {\n        Button button = new Button(\"Нажми меня!\");\n        button.setOnAction(e -> {\n            System.out.println(\"Кнопка нажата!\");\n        });\n        \n        VBox root = new VBox(10);\n        root.getChildren().add(button);\n        \n        Scene scene = new Scene(root, 300, 200);\n        \n        primaryStage.setTitle(\"Простое приложение\");\n        primaryStage.setScene(scene);\n        primaryStage.show();\n    }\n    \n    public static void main(String[] args) {\n        launch(args);\n    }\n}"
+        },
+        {
+          "title": "Использование FXML",
+          "content": "Создание интерфейса с помощью FXML. FXML позволяет отделить логику от представления и создавать сложные интерфейсы декларативно.",
+          "code": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<VBox xmlns:fx=\"http://javafx.com/fxml\" \n      fx:controller=\"com.example.MainController\"\n      spacing=\"10\" padding=\"20\">\n    \n    <Label text=\"Добро пожаловать!\" \n           styleClass=\"welcome-label\"/>\n    \n    <TextField fx:id=\"nameField\" \n               promptText=\"Введите ваше имя\"/>\n    \n    <Button text=\"Приветствовать\" \n            onAction=\"#handleGreeting\"/>\n    \n    <Label fx:id=\"resultLabel\" \n           text=\"\" \n           styleClass=\"result-label\"/>\n</VBox>"
+        },
+        {
+          "title": "CSS стилизация",
+          "content": "Создание красивых стилей для приложения с использованием CSS. JavaFX поддерживает большинство CSS свойств и позволяет создавать современные интерфейсы.",
+          "code": ".welcome-label {\n    -fx-font-size: 24px;\n    -fx-font-weight: bold;\n    -fx-text-fill: #2c3e50;\n    -fx-padding: 10px;\n}\n\n.button {\n    -fx-background-color: #3498db;\n    -fx-text-fill: white;\n    -fx-font-size: 14px;\n    -fx-padding: 10 20;\n    -fx-background-radius: 5;\n    -fx-cursor: hand;\n}\n\n.button:hover {\n    -fx-background-color: #2980b9;\n    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 5, 0, 0, 1);\n}"
+        },
+        {
+          "title": "Анимации и переходы",
+          "content": "Создание плавных анимаций с помощью JavaFX. Встроенные классы для анимаций позволяют создавать красивые эффекты.",
+          "code": "import javafx.animation.FadeTransition;\nimport javafx.animation.ScaleTransition;\nimport javafx.util.Duration;\n\n// Анимация появления\nFadeTransition fadeIn = new FadeTransition(Duration.millis(1000), node);\nfadeIn.setFromValue(0.0);\nfadeIn.setToValue(1.0);\nfadeIn.play();\n\n// Анимация масштабирования\nScaleTransition scaleIn = new ScaleTransition(Duration.millis(500), node);\nscaleIn.setFromX(0.5);\nscaleIn.setToX(1.0);\nscaleIn.setFromY(0.5);\nscaleIn.setToY(1.0);\nscaleIn.play();"
+        },
+        {
+          "title": "Работа с данными и привязка",
+          "content": "Использование свойств JavaFX для автоматического обновления UI. Привязка данных позволяет создавать реактивные интерфейсы.",
+          "code": "import javafx.beans.property.StringProperty;\nimport javafx.beans.property.SimpleStringProperty;\n\npublic class User {\n    private StringProperty name = new SimpleStringProperty();\n    private StringProperty email = new SimpleStringProperty();\n    \n    public String getName() { return name.get(); }\n    public void setName(String name) { this.name.set(name); }\n    public StringProperty nameProperty() { return name; }\n    \n    public String getEmail() { return email.get(); }\n    public void setEmail(String email) { this.email.set(email); }\n    public StringProperty emailProperty() { return email; }\n}\n\n// Привязка данных\nTextField nameField = new TextField();\nnameField.textProperty().bindBidirectional(user.nameProperty());"
+        }
+      ]
+    },
+    "tasks": {
+      "sections": [
+        {
+          "title": "Задача 1: Создание калькулятора",
+          "description": "Создайте простой калькулятор с базовыми математическими операциями.",
+          "requirements": [
+            "Интерфейс с кнопками цифр 0-9",
+            "Кнопки операций: +, -, *, /",
+            "Кнопка равно (=) и очистки (C)",
+            "Поле для отображения результата",
+            "Обработка ошибок (деление на ноль)"
+          ],
+          "difficulty": "Средняя",
+          "time": "30-45 минут"
+        },
+        {
+          "title": "Задача 2: Приложение для заметок",
+          "description": "Разработайте приложение для создания и редактирования заметок.",
+          "requirements": [
+            "Список заметок в левой панели",
+            "Редактор текста в правой панели",
+            "Возможность создания новых заметок",
+            "Сохранение заметок в файл",
+            "Поиск по заметкам"
+          ],
+          "difficulty": "Сложная",
+          "time": "60-90 минут"
+        },
+        {
+          "title": "Задача 3: Игра \"Угадай число\"",
+          "description": "Создайте интерактивную игру с красивым интерфейсом.",
+          "requirements": [
+            "Генерация случайного числа от 1 до 100",
+            "Поле для ввода предположения",
+            "Подсказки \"больше\" или \"меньше\"",
+            "Счетчик попыток",
+            "Кнопка \"Новая игра\"",
+            "Анимации при правильном ответе"
+          ],
+          "difficulty": "Легкая",
+          "time": "45-60 минут"
+        },
+        {
+          "title": "Задача 4: Менеджер файлов",
+          "description": "Постройте простой файловый менеджер с древовидной структурой.",
+          "requirements": [
+            "Древовидное представление папок",
+            "Список файлов в выбранной папке",
+            "Информация о размере и дате файлов",
+            "Контекстное меню (правый клик)",
+            "Перетаскивание файлов (drag & drop)",
+            "Фильтрация по типу файлов"
+          ],
+          "difficulty": "Очень сложная",
+          "time": "120-180 минут"
+        },
+        {
+          "title": "Задача 5: Графический редактор",
+          "description": "Создайте простой графический редактор с базовыми инструментами.",
+          "requirements": [
+            "Холст для рисования",
+            "Инструменты: карандаш, линия, прямоугольник, круг",
+            "Выбор цвета и толщины линии",
+            "Отмена последнего действия (Undo)",
+            "Сохранение рисунка в файл",
+            "Очистка холста"
+          ],
+          "difficulty": "Очень сложная",
+          "time": "180-240 минут"
+        },
+        {
+          "title": "Бонусная задача: Медиа-плеер",
+          "description": "Разработайте простой медиа-плеер с современным интерфейсом.",
+          "requirements": [
+            "Воспроизведение аудио и видео файлов",
+            "Плейлист с возможностью добавления/удаления треков",
+            "Регулировка громкости",
+            "Прогресс-бар воспроизведения",
+            "Кнопки управления: play, pause, stop, next, previous",
+            "Визуализация аудио (спектр или волны)"
+          ],
+          "difficulty": "Экспертная",
+          "time": "240+ минут"
+        }
+      ]
+    }
+  }
+]

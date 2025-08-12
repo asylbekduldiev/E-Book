@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.web.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox fx:id="mainContainer" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" 
+      fx:controller="org.example.controller.MainController">
+    
+    <!-- Top Bar -->
+    <HBox fx:id="topBar" styleClass="top-bar">
+        <padding>
+            <Insets top="20" right="25" bottom="20" left="25"/>
+        </padding>
+        
+        <HBox spacing="15" alignment="CENTER_LEFT">
+            <Label text="🎨" styleClass="app-icon"/>
+            <VBox spacing="2">
+                <Label text="JavaFX Учебник" styleClass="app-title"/>
+                <Label text="Современная разработка UI" styleClass="app-subtitle"/>
+            </VBox>
+        </HBox>
+        
+        <Region HBox.hgrow="ALWAYS"/>
+        
+        <VBox alignment="CENTER_RIGHT" spacing="8">
+            <Label text="🔍 Поиск по содержимому" styleClass="search-label"/>
+            <HBox spacing="10" alignment="CENTER_RIGHT">
+                <TextField fx:id="searchField" promptText="Введите ключевые слова..." styleClass="search-field"/>
+                
+                <!-- Window Control Buttons -->
+                <HBox spacing="5" styleClass="window-controls">
+                    <Button fx:id="minimizeButton" text="─" styleClass="window-button minimize" onAction="#minimizeWindow"/>
+                    <Button fx:id="maximizeButton" text="□" styleClass="window-button maximize" onAction="#maximizeWindow"/>
+                    <Button fx:id="closeButton" text="✕" styleClass="window-button close" onAction="#closeWindow"/>
+                </HBox>
+            </HBox>
+        </VBox>
+    </HBox>
+    
+    <!-- Main Content -->
+    <HBox styleClass="main-content">
+        <!-- Sidebar -->
+        <VBox fx:id="sidebar" styleClass="sidebar">
+            <padding>
+                <Insets top="25" right="20" bottom="25" left="25"/>
+            </padding>
+            
+            <!-- Section Navigation -->
+            <VBox spacing="15" styleClass="section-nav">
+                <Label text="📚 Секции обучения" styleClass="nav-title"/>
+                
+                <Button fx:id="lectureButton" text="📖 Лекция" styleClass="section-button" onAction="#showLectureSection"/>
+                <Button fx:id="practiceButton" text="💻 Практика" styleClass="section-button" onAction="#showPracticeSection"/>
+                <Button fx:id="tasksButton" text="🎯 Задачи" styleClass="section-button" onAction="#showTasksSection"/>
+                
+                <Separator styleClass="nav-separator"/>
+                
+                <Label text="📋 Содержание секции" styleClass="nav-title"/>
+                <ListView fx:id="contentListView" VBox.vgrow="ALWAYS" styleClass="content-list"/>
+            </VBox>
+        </VBox>
+        
+        <!-- Content Area -->
+        <VBox fx:id="contentArea" styleClass="content-area" HBox.hgrow="ALWAYS">
+            <!-- Section Header -->
+            <VBox fx:id="sectionHeader" styleClass="section-header">
+                <HBox alignment="CENTER_LEFT" spacing="20">
+                    <VBox spacing="5">
+                        <Label fx:id="sectionTitleLabel" text="Выберите секцию" styleClass="section-title"/>
+                        <Label fx:id="sectionDescriptionLabel" text="" styleClass="section-description"/>
+                    </VBox>
+                    
+                    <Region HBox.hgrow="ALWAYS"/>
+                    
+                    <!-- Progress Indicator -->
+                    <VBox alignment="CENTER_RIGHT" spacing="5">
+                        <Label text="Прогресс изучения" styleClass="progress-label"/>
+                        <ProgressBar fx:id="progressBar" prefWidth="200" styleClass="progress-bar"/>
+                        <Label fx:id="progressText" text="0%" styleClass="progress-text"/>
+                    </VBox>
+                </HBox>
+            </VBox>
+            
+            <Separator styleClass="content-separator"/>
+            
+            <!-- Content Viewer -->
+            <WebView fx:id="contentView" VBox.vgrow="ALWAYS"/>
+            
+            <!-- Bottom Navigation -->
+            <HBox styleClass="bottom-nav">
+                <Button fx:id="prevButton" text="← Предыдущий" styleClass="nav-button" onAction="#showPreviousContent"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button fx:id="completeButton" text="✓ Отметить как изученное" styleClass="complete-button" onAction="#markAsCompleted"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button fx:id="nextButton" text="Следующий →" styleClass="nav-button" onAction="#showNextContent"/>
+            </HBox>
+        </VBox>
+    </HBox>
+</VBox>
