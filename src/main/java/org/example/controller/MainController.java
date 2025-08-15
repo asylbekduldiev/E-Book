@@ -9,14 +9,21 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.animation.FadeTransition;
 import javafx.animation.ScaleTransition;
+import javafx.stage.FileChooser;
 import javafx.util.Duration;
 import javafx.geometry.Insets;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.example.model.Lesson;
 import org.example.service.FileContentService;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonArray;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.stage.Stage;
@@ -312,6 +319,63 @@ public class MainController implements Initializable {
                     Thread.currentThread().interrupt();
                 }
             }).start();
+        }
+    }
+
+    @FXML
+    private void exportTasksToExcel() {
+        try {
+            Workbook workbook = new XSSFWorkbook();
+            Sheet sheet = workbook.createSheet("Tasks");
+
+            if (lessonData != null && lessonData.has("tasks")) {
+                JsonArray sections = lessonData
+                        .getAsJsonObject("tasks")
+                        .getAsJsonArray("sections");
+
+                // Заголовки столбцов
+                Row header = sheet.createRow(0);
+                header.createCell(0).setCellValue("Title");
+                header.createCell(1).setCellValue("Description");
+                header.createCell(2).setCellValue("Difficulty");
+                header.createCell(3).setCellValue("Time");
+                header.createCell(4).setCellValue("Requirements");
+
+                // Заполнение строк
+                for (int i = 0; i < sections.size(); i++) {
+                    JsonObject task = sections.get(i).getAsJsonObject();
+                    Row row = sheet.createRow(i + 1);
+                    row.createCell(0).setCellValue(task.get("title").getAsString());
+                    row.createCell(1).setCellValue(task.get("description").getAsString());
+                    row.createCell(2).setCellValue(task.get("difficulty").getAsString());
+                    row.createCell(3).setCellValue(task.get("time").getAsString());
+
+                    StringBuilder reqs = new StringBuilder();
+                    JsonArray requirements = task.getAsJsonArray("requirements");
+                    for (int j = 0; j < requirements.size(); j++) {
+                        reqs.append(requirements.get(j).getAsString());
+                        if (j < requirements.size() - 1) reqs.append(", ");
+                    }
+                    row.createCell(4).setCellValue(reqs.toString());
+                }
+            }
+
+            // Сохраняем через FileChooser
+            FileChooser saveChooser = new FileChooser();
+            saveChooser.setTitle("Сохранить задачи в Excel");
+            saveChooser.getExtensionFilters().add(
+                    new FileChooser.ExtensionFilter("Excel Files", "*.xlsx")
+            );
+            File saveFile = saveChooser.showSaveDialog(mainContainer.getScene().getWindow());
+
+            if (saveFile != null) {
+                try (FileOutputStream fos = new FileOutputStream(saveFile)) {
+                    workbook.write(fos);
+                }
+                workbook.close();
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
     }
     

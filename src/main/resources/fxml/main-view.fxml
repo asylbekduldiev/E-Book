@@ -55,7 +55,8 @@
                 <Button fx:id="lectureButton" text="📖 Лекция" styleClass="section-button" onAction="#showLectureSection"/>
                 <Button fx:id="practiceButton" text="💻 Практика" styleClass="section-button" onAction="#showPracticeSection"/>
                 <Button fx:id="tasksButton" text="🎯 Задачи" styleClass="section-button" onAction="#showTasksSection"/>
-                
+                <Button text="📥 Скачать задачи в Excel" styleClass="section-button" onAction="#exportTasksToExcel"/>
+
                 <Separator styleClass="nav-separator"/>
                 
                 <Label text="📋 Содержание секции" styleClass="nav-title"/>

@@ -1,0 +1,122 @@
+[
+  {
+    "variant": 1,
+    "formula": "R = 3*t^2 + 3*t^5 + 4.9"
+  },
+  {
+    "variant": 2,
+    "formula": "K = ln(p^2 + y^3) + e^(p)"
+  },
+  {
+    "variant": 3,
+    "formula": "G = n*(y + 3.5) + sqrt(y)"
+  },
+  {
+    "variant": 4,
+    "formula": "D = 9.8*a^2 + 5.52*cos(t^5)"
+  },
+  {
+    "variant": 5,
+    "formula": "L = 1.51*cos(x^2) + 2*x^3"
+  },
+  {
+    "variant": 6,
+    "formula": "M = cos(2*y) + 3.6*e^(x)"
+  },
+  {
+    "variant": 7,
+    "formula": "N = m^2 + 2.8*abs(m) + 0.55"
+  },
+  {
+    "variant": 8,
+    "formula": "T = sqrt(abs(6*y^2 - 0.1*y + 4))"
+  },
+  {
+    "variant": 9,
+    "formula": "V = ln(y + 0.95) + sin(x^4)"
+  },
+  {
+    "variant": 10,
+    "formula": "U = e^(y) + 7.355*k^2 + sin(x)^2"
+  },
+  {
+    "variant": 11,
+    "formula": "S = 9.756*y^7 + 2*tan(x)"
+  },
+  {
+    "variant": 12,
+    "formula": "K = 7*t^2 + 3*sin(x^3) + 9.2"
+  },
+  {
+    "variant": 13,
+    "formula": "E = sqrt(abs(3*y^2 + 0.5*y + 4))"
+  },
+  {
+    "variant": 14,
+    "formula": "R = sqrt(abs(sin(y)^2 + 6.835 + e^(x)))"
+  },
+  {
+    "variant": 15,
+    "formula": "H = sin(y^2) - 2.8*y + sqrt(abs(y))"
+  },
+  {
+    "variant": 16,
+    "formula": "S = sqrt(cos(4*y^2) + 7.151)"
+  },
+  {
+    "variant": 17,
+    "formula": "N = 3*y^2 + sqrt(y + 1)"
+  },
+  {
+    "variant": 18,
+    "formula": "Z = 3*y^2 + sqrt(y^3 + 1)"
+  },
+  {
+    "variant": 19,
+    "formula": "P = n*sqrt(y^3 + 1.09*g)"
+  },
+  {
+    "variant": 20,
+    "formula": "U = e^(k + y) + tan(sqrt(y))"
+  },
+  {
+    "variant": 21,
+    "formula": "P = e^(y + 5.5) + 9.1*h^3"
+  },
+  {
+    "variant": 22,
+    "formula": "T = sin(2*u) * ln(2*y^2 + sqrt(x))"
+  },
+  {
+    "variant": 23,
+    "formula": "G = e^(2*y) + sin(f)"
+  },
+  {
+    "variant": 24,
+    "formula": "F = 2*sin(0.214*y^5 + 1)"
+  },
+  {
+    "variant": 25,
+    "formula": "G = e^(2*y) + sin(f^2)"
+  },
+  {
+    "variant": 26,
+    "formula": "Z = sin(p^2 + 0.4)^3"
+  },
+  {
+    "variant": 27,
+    "formula": "W = 1.03*v + e^(2*y) + tan(abs(x))"
+  },
+  {
+    "variant": 28,
+    "formula": "T = e^(y + h) + sqrt(abs(6.4*y))"
+  },
+  {
+    "variant": 29,
+    "formula": "N = 3*y^2 + sqrt(abs(y + 1))"
+  },
+  {
+    "variant": 30,
+    "formula": "W = e^(y + r) + 7.2*sin(r)"
+  }
+]
